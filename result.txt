@@ -1,0 +1,808 @@
+Result
+
+Scenario One: 
+Client
+2020-03-29T19:43:45.514: Client 1 Request: PUT KEY-s1 VALUE-1
+2020-03-29T19:43:45.767: Client 1 Received from Server: PUT -> key s1 value:1 status : SUCESS 
+2020-03-29T19:43:45.767: Client 2 Request: get KEY-s1
+2020-03-29T19:43:45.769: Client 2 Received from Server: GET -> key s1 value:1 Status: SUCESS 
+2020-03-29T19:43:45.769: Client 1 Request: PUT KEY-s1 VALUE-2
+2020-03-29T19:43:46.011: Client 1 Received from Server: PUT -> key s1 value:2 status : SUCESS 
+2020-03-29T19:43:46.011: Client 2 Request: get KEY-s1
+2020-03-29T19:43:46.012: Client 2 Received from Server: GET -> key s1 value:2 Status: SUCESS 
+2020-03-29T19:43:46.013: Client 2 Request: DEL KEY-s1
+2020-03-29T19:43:46.246: Client 2 Received from Server: DELETE -> key s1 status : SUCESS 
+2020-03-29T19:43:46.246: Client 2 Request: DEL KEY-s3
+2020-03-29T19:43:46.481: Client 2 Received from Server: DELETE -> key s3 status : FAIL
+Server
+2020-03-29T19:43:42.415: Server 0 is running at port 9876
+2020-03-29T19:43:42.419: Server 1 is running at port 8765
+2020-03-29T19:43:42.423: Server 2 is running at port 7654
+2020-03-29T19:43:42.426: Server 3 is running at port 6543
+2020-03-29T19:43:42.430: Server 4 is running at port 5432
+2020-03-29T19:43:45.522: Server at port 9876 Received Request: PUT Key:s1 Value:1
+2020-03-29T19:43:45.523: Server at port 9876 Send Request to Node Server Ack
+2020-03-29T19:43:45.527: Ack received from: 8765
+2020-03-29T19:43:45.528: call request for worked. server port: 8765
+2020-03-29T19:43:45.530: Ack received from: 7654
+2020-03-29T19:43:45.531: call request for worked. server port: 7654
+2020-03-29T19:43:45.536: Ack received from: 6543
+2020-03-29T19:43:45.536: call request for worked. server port: 6543
+2020-03-29T19:43:45.538: Ack received from: 5432
+2020-03-29T19:43:45.539: call request for worked. server port: 5432
+2020-03-29T19:43:45.643: Wait Ack Try 1
+2020-03-29T19:43:45.643: Wait Ack Scuess
+2020-03-29T19:43:45.643: Server at port 9876 Send Request to Node Server Commit
+2020-03-29T19:43:45.648: Writing the key: s1 and value: 1 at server port: 8765 status:SUCESS 
+2020-03-29T19:43:45.649: Ack received from: 8765
+2020-03-29T19:43:45.650: call commit for worked. server port: 8765
+2020-03-29T19:43:45.652: Writing the key: s1 and value: 1 at server port: 7654 status:SUCESS 
+2020-03-29T19:43:45.653: Ack received from: 7654
+2020-03-29T19:43:45.654: call commit for worked. server port: 7654
+2020-03-29T19:43:45.655: Writing the key: s1 and value: 1 at server port: 6543 status:SUCESS 
+2020-03-29T19:43:45.657: Ack received from: 6543
+2020-03-29T19:43:45.657: call commit for worked. server port: 6543
+2020-03-29T19:43:45.659: Writing the key: s1 and value: 1 at server port: 5432 status:SUCESS 
+2020-03-29T19:43:45.660: Ack received from: 5432
+2020-03-29T19:43:45.661: call commit for worked. server port: 5432
+2020-03-29T19:43:45.765: Wait Ack To Commit Try 1
+2020-03-29T19:43:45.765: Wait Ack To Commit Scuess
+2020-03-29T19:43:45.767: Writing the key: s1 and value: 1 at server port: 9876 status:SUCESS 
+2020-03-29T19:43:45.767: Server at port 9876 Process: PUT -> key s1 value:1 status : SUCESS 
+2020-03-29T19:43:45.768: Server at port 8765 Received Request: GET Key:s1
+2020-03-29T19:43:45.768: Server at port 8765 Process: GET  key:s1 value:1 Status:SUCESS 
+2020-03-29T19:43:45.769: Server at port 9876 Received Request: PUT Key:s1 Value:2
+2020-03-29T19:43:45.769: Server at port 9876 Send Request to Node Server Ack
+2020-03-29T19:43:45.772: Ack received from: 8765
+2020-03-29T19:43:45.772: call request for worked. server port: 8765
+2020-03-29T19:43:45.775: Ack received from: 7654
+2020-03-29T19:43:45.775: call request for worked. server port: 7654
+2020-03-29T19:43:45.777: Ack received from: 6543
+2020-03-29T19:43:45.778: call request for worked. server port: 6543
+2020-03-29T19:43:45.781: Ack received from: 5432
+2020-03-29T19:43:45.781: call request for worked. server port: 5432
+2020-03-29T19:43:45.885: Wait Ack Try 1
+2020-03-29T19:43:45.885: Wait Ack Scuess
+2020-03-29T19:43:45.885: Server at port 9876 Send Request to Node Server Commit
+2020-03-29T19:43:45.887: Writing the key: s1 and value: 2 at server port: 8765 status:SUCESS 
+2020-03-29T19:43:45.888: Ack received from: 8765
+2020-03-29T19:43:45.888: call commit for worked. server port: 8765
+2020-03-29T19:43:45.892: Writing the key: s1 and value: 2 at server port: 7654 status:SUCESS 
+2020-03-29T19:43:45.893: Ack received from: 7654
+2020-03-29T19:43:45.893: call commit for worked. server port: 7654
+2020-03-29T19:43:45.895: Writing the key: s1 and value: 2 at server port: 6543 status:SUCESS 
+2020-03-29T19:43:45.896: Ack received from: 6543
+2020-03-29T19:43:45.896: call commit for worked. server port: 6543
+2020-03-29T19:43:45.898: Writing the key: s1 and value: 2 at server port: 5432 status:SUCESS 
+2020-03-29T19:43:45.900: Ack received from: 5432
+2020-03-29T19:43:45.900: call commit for worked. server port: 5432
+2020-03-29T19:43:46.004: Wait Ack To Commit Try 1
+2020-03-29T19:43:46.004: Wait Ack To Commit Scuess
+2020-03-29T19:43:46.010: Writing the key: s1 and value: 2 at server port: 9876 status:SUCESS 
+2020-03-29T19:43:46.011: Server at port 9876 Process: PUT -> key s1 value:2 status : SUCESS 
+2020-03-29T19:43:46.012: Server at port 8765 Received Request: GET Key:s1
+2020-03-29T19:43:46.012: Server at port 8765 Process: GET  key:s1 value:2 Status:SUCESS 
+2020-03-29T19:43:46.013: Server at port 8765 Received Request: DEL Key:s1 Value:
+2020-03-29T19:43:46.014: Server at port 8765 Send Request to Node Server Ack
+2020-03-29T19:43:46.016: Ack received from: 9876
+2020-03-29T19:43:46.017: call request for worked. server port: 9876
+2020-03-29T19:43:46.019: Ack received from: 7654
+2020-03-29T19:43:46.019: call request for worked. server port: 7654
+2020-03-29T19:43:46.021: Ack received from: 6543
+2020-03-29T19:43:46.022: call request for worked. server port: 6543
+2020-03-29T19:43:46.024: Ack received from: 5432
+2020-03-29T19:43:46.024: call request for worked. server port: 5432
+2020-03-29T19:43:46.129: Wait Ack Try 1
+2020-03-29T19:43:46.129: Wait Ack Scuess
+2020-03-29T19:43:46.129: Server at port 8765 Send Request to Node Server Commit
+2020-03-29T19:43:46.131: Deleting the key: s1 at server port: 9876 status:SUCESS 
+2020-03-29T19:43:46.132: Ack received from: 9876
+2020-03-29T19:43:46.132: call commit for worked. server port: 9876
+2020-03-29T19:43:46.134: Deleting the key: s1 at server port: 7654 status:SUCESS 
+2020-03-29T19:43:46.135: Ack received from: 7654
+2020-03-29T19:43:46.136: call commit for worked. server port: 7654
+2020-03-29T19:43:46.138: Deleting the key: s1 at server port: 6543 status:SUCESS 
+2020-03-29T19:43:46.139: Ack received from: 6543
+2020-03-29T19:43:46.140: call commit for worked. server port: 6543
+2020-03-29T19:43:46.141: Deleting the key: s1 at server port: 5432 status:SUCESS 
+2020-03-29T19:43:46.142: Ack received from: 5432
+2020-03-29T19:43:46.143: call commit for worked. server port: 5432
+2020-03-29T19:43:46.243: Wait Ack To Commit Try 1
+2020-03-29T19:43:46.243: Wait Ack To Commit Scuess
+2020-03-29T19:43:46.245: Deleting the key: s1 at server port: 8765 status:SUCESS 
+2020-03-29T19:43:46.246: Server at port 8765 Process: DELETE -> key s1 status : SUCESS 
+2020-03-29T19:43:46.247: Server at port 8765 Received Request: DEL Key:s3 Value:
+2020-03-29T19:43:46.247: Server at port 8765 Send Request to Node Server Ack
+2020-03-29T19:43:46.249: Ack received from: 9876
+2020-03-29T19:43:46.250: call request for worked. server port: 9876
+2020-03-29T19:43:46.252: Ack received from: 7654
+2020-03-29T19:43:46.252: call request for worked. server port: 7654
+2020-03-29T19:43:46.255: Ack received from: 6543
+2020-03-29T19:43:46.255: call request for worked. server port: 6543
+2020-03-29T19:43:46.257: Ack received from: 5432
+2020-03-29T19:43:46.258: call request for worked. server port: 5432
+2020-03-29T19:43:46.361: Wait Ack Try 1
+2020-03-29T19:43:46.361: Wait Ack Scuess
+2020-03-29T19:43:46.361: Server at port 8765 Send Request to Node Server Commit
+2020-03-29T19:43:46.362: Deleting the key: s3 at server port: 9876 status:FAIL
+2020-03-29T19:43:46.364: Ack received from: 9876
+2020-03-29T19:43:46.364: call commit for worked. server port: 9876
+2020-03-29T19:43:46.365: Deleting the key: s3 at server port: 7654 status:FAIL
+2020-03-29T19:43:46.368: Ack received from: 7654
+2020-03-29T19:43:46.370: call commit for worked. server port: 7654
+2020-03-29T19:43:46.371: Deleting the key: s3 at server port: 6543 status:FAIL
+2020-03-29T19:43:46.373: Ack received from: 6543
+2020-03-29T19:43:46.373: call commit for worked. server port: 6543
+2020-03-29T19:43:46.374: Deleting the key: s3 at server port: 5432 status:FAIL
+2020-03-29T19:43:46.376: Ack received from: 5432
+2020-03-29T19:43:46.376: call commit for worked. server port: 5432
+2020-03-29T19:43:46.480: Wait Ack To Commit Try 1
+2020-03-29T19:43:46.481: Wait Ack To Commit Scuess
+2020-03-29T19:43:46.481: Deleting the key: s3 at server port: 8765 status:FAIL
+2020-03-29T19:43:46.481: Server at port 8765 Process: DELETE -> key s3 status : FAIL
+
+
+Scenario two: 
+Client
+2020-03-29T19:46:20.306: Client 1 Request: PUT KEY-s1 VALUE-1
+2020-03-29T19:46:20.659: Client 1 Received from Server: PUT FAIL 
+Server
+2020-03-29T19:46:17.033: Server 0 is running at port 9876
+2020-03-29T19:46:17.038: Server 1 is running at port 8765
+2020-03-29T19:46:17.042: Server 2 is running at port 7654
+2020-03-29T19:46:17.046: Server 3 is running at port 6543
+2020-03-29T19:46:17.049: Server 4 is running at port 5432
+2020-03-29T19:46:17.049: Server Stopped Running at port 8765
+2020-03-29T19:46:20.309: Server at port 9876 Received Request: PUT Key:s1 Value:1
+2020-03-29T19:46:20.315: Server at port 9876 Send Request to Node Server Ack
+2020-03-29T19:46:20.318: Ack received from: 8765
+2020-03-29T19:46:20.318: call request for worked. server port: 8765
+2020-03-29T19:46:20.321: Ack received from: 7654
+2020-03-29T19:46:20.321: call request for worked. server port: 7654
+2020-03-29T19:46:20.326: Ack received from: 6543
+2020-03-29T19:46:20.326: call request for worked. server port: 6543
+2020-03-29T19:46:20.329: Ack received from: 5432
+2020-03-29T19:46:20.329: call request for worked. server port: 5432
+2020-03-29T19:46:20.433: Wait Ack Try 1
+2020-03-29T19:46:20.436: Ack received from: 8765
+2020-03-29T19:46:20.439: Ack received from: 8765
+2020-03-29T19:46:20.439: call request for worked. server port: 8765
+2020-03-29T19:46:20.544: Wait Ack Try 2
+2020-03-29T19:46:20.547: Ack received from: 8765
+2020-03-29T19:46:20.549: Ack received from: 8765
+2020-03-29T19:46:20.549: call request for worked. server port: 8765
+2020-03-29T19:46:20.654: Wait Ack Try 3
+2020-03-29T19:46:20.657: Ack received from: 8765
+2020-03-29T19:46:20.658: Ack received from: 8765
+2020-03-29T19:46:20.658: call request for worked. server port: 8765
+2020-03-29T19:46:20.659: Wait Ack Fail, Abort operation
+
+
+Scenario three: 
+Client
+2020-03-29T20:16:47.330: Client 0 Request: PUT KEY-s1 VALUE-1
+2020-03-29T20:16:47.585: Client 0 Received from Server: PUT -> key s1 value:1 status : SUCESS 
+2020-03-29T20:16:47.585: Client 1 Request: PUT KEY-s2 VALUE-2
+2020-03-29T20:16:47.821: Client 1 Received from Server: PUT -> key s2 value:2 status : SUCESS 
+2020-03-29T20:16:47.821: Client 2 Request: PUT KEY-s3 VALUE-3
+2020-03-29T20:16:48.057: Client 2 Received from Server: PUT -> key s3 value:3 status : SUCESS 
+2020-03-29T20:16:48.057: Client 3 Request: PUT KEY-s4 VALUE-4
+2020-03-29T20:16:48.295: Client 3 Received from Server: PUT -> key s4 value:4 status : SUCESS 
+2020-03-29T20:16:48.295: Client 4 Request: PUT KEY-s5 VALUE-5
+2020-03-29T20:16:48.539: Client 4 Received from Server: PUT -> key s5 value:5 status : SUCESS 
+2020-03-29T20:16:48.539: Client 0 Request: PUT KEY-s3 VALUE-
+2020-03-29T20:16:48.773: Client 0 Received from Server: PUT -> key s3 value: status : SUCESS 
+2020-03-29T20:16:48.773: Client 1 Request: PUT KEY-s1 VALUE-
+2020-03-29T20:16:49.005: Client 1 Received from Server: PUT -> key s1 value: status : SUCESS 
+2020-03-29T20:16:49.005: Client 2 Request: PUT KEY-s4 VALUE-
+2020-03-29T20:16:49.243: Client 2 Received from Server: PUT -> key s4 value: status : SUCESS 
+2020-03-29T20:16:49.243: Client 3 Request: PUT KEY-s5 VALUE-
+2020-03-29T20:16:49.475: Client 3 Received from Server: PUT -> key s5 value: status : SUCESS 
+2020-03-29T20:16:49.475: Client 4 Request: PUT KEY-s2 VALUE-
+2020-03-29T20:16:49.705: Client 4 Received from Server: PUT -> key s2 value: status : SUCESS 
+2020-03-29T20:16:49.705: Client 0 Request: DEL KEY-s3
+2020-03-29T20:16:49.938: Client 0 Received from Server: DELETE -> key s3 status : SUCESS 
+2020-03-29T20:16:49.938: Client 1 Request: DEL KEY-s1
+2020-03-29T20:16:50.165: Client 1 Received from Server: DELETE -> key s1 status : SUCESS 
+2020-03-29T20:16:50.165: Client 2 Request: DEL KEY-s4
+2020-03-29T20:16:50.390: Client 2 Received from Server: DELETE -> key s4 status : SUCESS 
+2020-03-29T20:16:50.391: Client 3 Request: DEL KEY-s5
+2020-03-29T20:16:50.615: Client 3 Received from Server: DELETE -> key s5 status : SUCESS 
+2020-03-29T20:16:50.616: Client 4 Request: DEL KEY-s2
+2020-03-29T20:16:50.842: Client 4 Received from Server: DELETE -> key s2 status : SUCESS 
+2020-03-29T20:16:50.842: Client 0 Request: PUT KEY-s2 VALUE-1
+2020-03-29T20:16:51.073: Client 0 Received from Server: PUT -> key s2 value:1 status : SUCESS 
+2020-03-29T20:16:51.074: Client 1 Request: PUT KEY-s4 VALUE-3
+2020-03-29T20:16:51.307: Client 1 Received from Server: PUT -> key s4 value:3 status : SUCESS 
+2020-03-29T20:16:51.307: Client 2 Request: PUT KEY-s1 VALUE-4
+2020-03-29T20:16:51.534: Client 2 Received from Server: PUT -> key s1 value:4 status : SUCESS 
+2020-03-29T20:16:51.534: Client 3 Request: PUT KEY-s5 VALUE-5
+2020-03-29T20:16:51.758: Client 3 Received from Server: PUT -> key s5 value:5 status : SUCESS 
+2020-03-29T20:16:51.758: Client 4 Request: PUT KEY-s3 VALUE-2
+2020-03-29T20:16:51.983: Client 4 Received from Server: PUT -> key s3 value:2 status : SUCESS 
+Server
+2020-03-29T20:16:46.129: Server 0 is running at port 1234
+2020-03-29T20:16:46.134: Server 1 is running at port 2345
+2020-03-29T20:16:46.137: Server 2 is running at port 3456
+2020-03-29T20:16:46.141: Server 3 is running at port 4567
+2020-03-29T20:16:46.145: Server 4 is running at port 5678
+2020-03-29T20:16:47.332: Server at port 1234 Received Request: PUT Key:s1 Value:1
+2020-03-29T20:16:47.333: Server at port 1234 Send Request to Node Server Ack
+2020-03-29T20:16:47.336: Ack received from: 2345
+2020-03-29T20:16:47.336: call request for worked. server port: 2345
+2020-03-29T20:16:47.339: Ack received from: 3456
+2020-03-29T20:16:47.339: call request for worked. server port: 3456
+2020-03-29T20:16:47.341: Ack received from: 4567
+2020-03-29T20:16:47.342: call request for worked. server port: 4567
+2020-03-29T20:16:47.344: Ack received from: 5678
+2020-03-29T20:16:47.344: call request for worked. server port: 5678
+2020-03-29T20:16:47.450: Wait Ack Try 1
+2020-03-29T20:16:47.450: Wait Ack Scuess
+2020-03-29T20:16:47.450: Server at port 1234 Send Request to Node Server Commit
+2020-03-29T20:16:47.458: Writing the key: s1 and value: 1 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:47.459: Ack received from: 2345
+2020-03-29T20:16:47.460: call commit for worked. server port: 2345
+2020-03-29T20:16:47.462: Writing the key: s1 and value: 1 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:47.464: Ack received from: 3456
+2020-03-29T20:16:47.464: call commit for worked. server port: 3456
+2020-03-29T20:16:47.466: Writing the key: s1 and value: 1 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:47.468: Ack received from: 4567
+2020-03-29T20:16:47.468: call commit for worked. server port: 4567
+2020-03-29T20:16:47.470: Writing the key: s1 and value: 1 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:47.473: Ack received from: 5678
+2020-03-29T20:16:47.474: call commit for worked. server port: 5678
+2020-03-29T20:16:47.577: Wait Ack To Commit Try 1
+2020-03-29T20:16:47.578: Wait Ack To Commit Scuess
+2020-03-29T20:16:47.585: Writing the key: s1 and value: 1 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:47.585: Server at port 1234 Process: PUT -> key s1 value:1 status : SUCESS 
+2020-03-29T20:16:47.586: Server at port 2345 Received Request: PUT Key:s2 Value:2
+2020-03-29T20:16:47.586: Server at port 2345 Send Request to Node Server Ack
+2020-03-29T20:16:47.588: Ack received from: 1234
+2020-03-29T20:16:47.589: call request for worked. server port: 1234
+2020-03-29T20:16:47.591: Ack received from: 3456
+2020-03-29T20:16:47.592: call request for worked. server port: 3456
+2020-03-29T20:16:47.594: Ack received from: 4567
+2020-03-29T20:16:47.594: call request for worked. server port: 4567
+2020-03-29T20:16:47.597: Ack received from: 5678
+2020-03-29T20:16:47.598: call request for worked. server port: 5678
+2020-03-29T20:16:47.703: Wait Ack Try 1
+2020-03-29T20:16:47.703: Wait Ack Scuess
+2020-03-29T20:16:47.703: Server at port 2345 Send Request to Node Server Commit
+2020-03-29T20:16:47.705: Writing the key: s2 and value: 2 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:47.706: Ack received from: 1234
+2020-03-29T20:16:47.707: call commit for worked. server port: 1234
+2020-03-29T20:16:47.708: Writing the key: s2 and value: 2 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:47.710: Ack received from: 3456
+2020-03-29T20:16:47.710: call commit for worked. server port: 3456
+2020-03-29T20:16:47.712: Writing the key: s2 and value: 2 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:47.713: Ack received from: 4567
+2020-03-29T20:16:47.713: call commit for worked. server port: 4567
+2020-03-29T20:16:47.715: Writing the key: s2 and value: 2 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:47.716: Ack received from: 5678
+2020-03-29T20:16:47.717: call commit for worked. server port: 5678
+2020-03-29T20:16:47.820: Wait Ack To Commit Try 1
+2020-03-29T20:16:47.820: Wait Ack To Commit Scuess
+2020-03-29T20:16:47.821: Writing the key: s2 and value: 2 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:47.821: Server at port 2345 Process: PUT -> key s2 value:2 status : SUCESS 
+2020-03-29T20:16:47.822: Server at port 3456 Received Request: PUT Key:s3 Value:3
+2020-03-29T20:16:47.822: Server at port 3456 Send Request to Node Server Ack
+2020-03-29T20:16:47.824: Ack received from: 1234
+2020-03-29T20:16:47.824: call request for worked. server port: 1234
+2020-03-29T20:16:47.826: Ack received from: 2345
+2020-03-29T20:16:47.826: call request for worked. server port: 2345
+2020-03-29T20:16:47.828: Ack received from: 4567
+2020-03-29T20:16:47.828: call request for worked. server port: 4567
+2020-03-29T20:16:47.830: Ack received from: 5678
+2020-03-29T20:16:47.830: call request for worked. server port: 5678
+2020-03-29T20:16:47.934: Wait Ack Try 1
+2020-03-29T20:16:47.934: Wait Ack Scuess
+2020-03-29T20:16:47.934: Server at port 3456 Send Request to Node Server Commit
+2020-03-29T20:16:47.937: Writing the key: s3 and value: 3 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:47.938: Ack received from: 1234
+2020-03-29T20:16:47.939: call commit for worked. server port: 1234
+2020-03-29T20:16:47.940: Writing the key: s3 and value: 3 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:47.941: Ack received from: 2345
+2020-03-29T20:16:47.941: call commit for worked. server port: 2345
+2020-03-29T20:16:47.943: Writing the key: s3 and value: 3 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:47.944: Ack received from: 4567
+2020-03-29T20:16:47.944: call commit for worked. server port: 4567
+2020-03-29T20:16:47.946: Writing the key: s3 and value: 3 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:47.947: Ack received from: 5678
+2020-03-29T20:16:47.947: call commit for worked. server port: 5678
+2020-03-29T20:16:48.050: Wait Ack To Commit Try 1
+2020-03-29T20:16:48.050: Wait Ack To Commit Scuess
+2020-03-29T20:16:48.056: Writing the key: s3 and value: 3 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:48.056: Server at port 3456 Process: PUT -> key s3 value:3 status : SUCESS 
+2020-03-29T20:16:48.058: Server at port 4567 Received Request: PUT Key:s4 Value:4
+2020-03-29T20:16:48.058: Server at port 4567 Send Request to Node Server Ack
+2020-03-29T20:16:48.060: Ack received from: 1234
+2020-03-29T20:16:48.061: call request for worked. server port: 1234
+2020-03-29T20:16:48.063: Ack received from: 2345
+2020-03-29T20:16:48.063: call request for worked. server port: 2345
+2020-03-29T20:16:48.065: Ack received from: 3456
+2020-03-29T20:16:48.066: call request for worked. server port: 3456
+2020-03-29T20:16:48.068: Ack received from: 5678
+2020-03-29T20:16:48.068: call request for worked. server port: 5678
+2020-03-29T20:16:48.173: Wait Ack Try 1
+2020-03-29T20:16:48.173: Wait Ack Scuess
+2020-03-29T20:16:48.174: Server at port 4567 Send Request to Node Server Commit
+2020-03-29T20:16:48.175: Writing the key: s4 and value: 4 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:48.177: Ack received from: 1234
+2020-03-29T20:16:48.177: call commit for worked. server port: 1234
+2020-03-29T20:16:48.179: Writing the key: s4 and value: 4 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:48.180: Ack received from: 2345
+2020-03-29T20:16:48.180: call commit for worked. server port: 2345
+2020-03-29T20:16:48.182: Writing the key: s4 and value: 4 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:48.183: Ack received from: 3456
+2020-03-29T20:16:48.184: call commit for worked. server port: 3456
+2020-03-29T20:16:48.185: Writing the key: s4 and value: 4 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:48.187: Ack received from: 5678
+2020-03-29T20:16:48.187: call commit for worked. server port: 5678
+2020-03-29T20:16:48.291: Wait Ack To Commit Try 1
+2020-03-29T20:16:48.292: Wait Ack To Commit Scuess
+2020-03-29T20:16:48.294: Writing the key: s4 and value: 4 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:48.294: Server at port 4567 Process: PUT -> key s4 value:4 status : SUCESS 
+2020-03-29T20:16:48.295: Server at port 5678 Received Request: PUT Key:s5 Value:5
+2020-03-29T20:16:48.295: Server at port 5678 Send Request to Node Server Ack
+2020-03-29T20:16:48.298: Ack received from: 1234
+2020-03-29T20:16:48.298: call request for worked. server port: 1234
+2020-03-29T20:16:48.300: Ack received from: 2345
+2020-03-29T20:16:48.300: call request for worked. server port: 2345
+2020-03-29T20:16:48.303: Ack received from: 3456
+2020-03-29T20:16:48.303: call request for worked. server port: 3456
+2020-03-29T20:16:48.307: Ack received from: 4567
+2020-03-29T20:16:48.307: call request for worked. server port: 4567
+2020-03-29T20:16:48.411: Wait Ack Try 1
+2020-03-29T20:16:48.411: Wait Ack Scuess
+2020-03-29T20:16:48.411: Server at port 5678 Send Request to Node Server Commit
+2020-03-29T20:16:48.418: Writing the key: s5 and value: 5 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:48.419: Ack received from: 1234
+2020-03-29T20:16:48.420: call commit for worked. server port: 1234
+2020-03-29T20:16:48.421: Writing the key: s5 and value: 5 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:48.422: Ack received from: 2345
+2020-03-29T20:16:48.423: call commit for worked. server port: 2345
+2020-03-29T20:16:48.424: Writing the key: s5 and value: 5 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:48.425: Ack received from: 3456
+2020-03-29T20:16:48.426: call commit for worked. server port: 3456
+2020-03-29T20:16:48.427: Writing the key: s5 and value: 5 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:48.428: Ack received from: 4567
+2020-03-29T20:16:48.428: call commit for worked. server port: 4567
+2020-03-29T20:16:48.533: Wait Ack To Commit Try 1
+2020-03-29T20:16:48.533: Wait Ack To Commit Scuess
+2020-03-29T20:16:48.539: Writing the key: s5 and value: 5 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:48.539: Server at port 5678 Process: PUT -> key s5 value:5 status : SUCESS 
+2020-03-29T20:16:48.540: Server at port 1234 Received Request: PUT Key:s3 Value:
+2020-03-29T20:16:48.540: Server at port 1234 Send Request to Node Server Ack
+2020-03-29T20:16:48.542: Ack received from: 2345
+2020-03-29T20:16:48.543: call request for worked. server port: 2345
+2020-03-29T20:16:48.545: Ack received from: 3456
+2020-03-29T20:16:48.545: call request for worked. server port: 3456
+2020-03-29T20:16:48.547: Ack received from: 4567
+2020-03-29T20:16:48.547: call request for worked. server port: 4567
+2020-03-29T20:16:48.548: Ack received from: 5678
+2020-03-29T20:16:48.549: call request for worked. server port: 5678
+2020-03-29T20:16:48.653: Wait Ack Try 1
+2020-03-29T20:16:48.653: Wait Ack Scuess
+2020-03-29T20:16:48.653: Server at port 1234 Send Request to Node Server Commit
+2020-03-29T20:16:48.660: Writing the key: s3 and value:  at server port: 2345 status:SUCESS 
+2020-03-29T20:16:48.661: Ack received from: 2345
+2020-03-29T20:16:48.661: call commit for worked. server port: 2345
+2020-03-29T20:16:48.663: Writing the key: s3 and value:  at server port: 3456 status:SUCESS 
+2020-03-29T20:16:48.664: Ack received from: 3456
+2020-03-29T20:16:48.664: call commit for worked. server port: 3456
+2020-03-29T20:16:48.666: Writing the key: s3 and value:  at server port: 4567 status:SUCESS 
+2020-03-29T20:16:48.667: Ack received from: 4567
+2020-03-29T20:16:48.667: call commit for worked. server port: 4567
+2020-03-29T20:16:48.669: Writing the key: s3 and value:  at server port: 5678 status:SUCESS 
+2020-03-29T20:16:48.670: Ack received from: 5678
+2020-03-29T20:16:48.670: call commit for worked. server port: 5678
+2020-03-29T20:16:48.771: Wait Ack To Commit Try 1
+2020-03-29T20:16:48.771: Wait Ack To Commit Scuess
+2020-03-29T20:16:48.773: Writing the key: s3 and value:  at server port: 1234 status:SUCESS 
+2020-03-29T20:16:48.773: Server at port 1234 Process: PUT -> key s3 value: status : SUCESS 
+2020-03-29T20:16:48.774: Server at port 2345 Received Request: PUT Key:s1 Value:
+2020-03-29T20:16:48.774: Server at port 2345 Send Request to Node Server Ack
+2020-03-29T20:16:48.776: Ack received from: 1234
+2020-03-29T20:16:48.777: call request for worked. server port: 1234
+2020-03-29T20:16:48.778: Ack received from: 3456
+2020-03-29T20:16:48.779: call request for worked. server port: 3456
+2020-03-29T20:16:48.780: Ack received from: 4567
+2020-03-29T20:16:48.780: call request for worked. server port: 4567
+2020-03-29T20:16:48.782: Ack received from: 5678
+2020-03-29T20:16:48.782: call request for worked. server port: 5678
+2020-03-29T20:16:48.887: Wait Ack Try 1
+2020-03-29T20:16:48.887: Wait Ack Scuess
+2020-03-29T20:16:48.887: Server at port 2345 Send Request to Node Server Commit
+2020-03-29T20:16:48.889: Writing the key: s1 and value:  at server port: 1234 status:SUCESS 
+2020-03-29T20:16:48.890: Ack received from: 1234
+2020-03-29T20:16:48.890: call commit for worked. server port: 1234
+2020-03-29T20:16:48.892: Writing the key: s1 and value:  at server port: 3456 status:SUCESS 
+2020-03-29T20:16:48.893: Ack received from: 3456
+2020-03-29T20:16:48.893: call commit for worked. server port: 3456
+2020-03-29T20:16:48.894: Writing the key: s1 and value:  at server port: 4567 status:SUCESS 
+2020-03-29T20:16:48.896: Ack received from: 4567
+2020-03-29T20:16:48.896: call commit for worked. server port: 4567
+2020-03-29T20:16:48.897: Writing the key: s1 and value:  at server port: 5678 status:SUCESS 
+2020-03-29T20:16:48.898: Ack received from: 5678
+2020-03-29T20:16:48.898: call commit for worked. server port: 5678
+2020-03-29T20:16:49.002: Wait Ack To Commit Try 1
+2020-03-29T20:16:49.002: Wait Ack To Commit Scuess
+2020-03-29T20:16:49.004: Writing the key: s1 and value:  at server port: 2345 status:SUCESS 
+2020-03-29T20:16:49.004: Server at port 2345 Process: PUT -> key s1 value: status : SUCESS 
+2020-03-29T20:16:49.005: Server at port 3456 Received Request: PUT Key:s4 Value:
+2020-03-29T20:16:49.005: Server at port 3456 Send Request to Node Server Ack
+2020-03-29T20:16:49.008: Ack received from: 1234
+2020-03-29T20:16:49.008: call request for worked. server port: 1234
+2020-03-29T20:16:49.010: Ack received from: 2345
+2020-03-29T20:16:49.010: call request for worked. server port: 2345
+2020-03-29T20:16:49.012: Ack received from: 4567
+2020-03-29T20:16:49.012: call request for worked. server port: 4567
+2020-03-29T20:16:49.014: Ack received from: 5678
+2020-03-29T20:16:49.014: call request for worked. server port: 5678
+2020-03-29T20:16:49.118: Wait Ack Try 1
+2020-03-29T20:16:49.118: Wait Ack Scuess
+2020-03-29T20:16:49.118: Server at port 3456 Send Request to Node Server Commit
+2020-03-29T20:16:49.125: Writing the key: s4 and value:  at server port: 1234 status:SUCESS 
+2020-03-29T20:16:49.126: Ack received from: 1234
+2020-03-29T20:16:49.126: call commit for worked. server port: 1234
+2020-03-29T20:16:49.127: Writing the key: s4 and value:  at server port: 2345 status:SUCESS 
+2020-03-29T20:16:49.128: Ack received from: 2345
+2020-03-29T20:16:49.129: call commit for worked. server port: 2345
+2020-03-29T20:16:49.130: Writing the key: s4 and value:  at server port: 4567 status:SUCESS 
+2020-03-29T20:16:49.131: Ack received from: 4567
+2020-03-29T20:16:49.131: call commit for worked. server port: 4567
+2020-03-29T20:16:49.132: Writing the key: s4 and value:  at server port: 5678 status:SUCESS 
+2020-03-29T20:16:49.133: Ack received from: 5678
+2020-03-29T20:16:49.133: call commit for worked. server port: 5678
+2020-03-29T20:16:49.237: Wait Ack To Commit Try 1
+2020-03-29T20:16:49.237: Wait Ack To Commit Scuess
+2020-03-29T20:16:49.243: Writing the key: s4 and value:  at server port: 3456 status:SUCESS 
+2020-03-29T20:16:49.243: Server at port 3456 Process: PUT -> key s4 value: status : SUCESS 
+2020-03-29T20:16:49.244: Server at port 4567 Received Request: PUT Key:s5 Value:
+2020-03-29T20:16:49.244: Server at port 4567 Send Request to Node Server Ack
+2020-03-29T20:16:49.246: Ack received from: 1234
+2020-03-29T20:16:49.246: call request for worked. server port: 1234
+2020-03-29T20:16:49.247: Ack received from: 2345
+2020-03-29T20:16:49.248: call request for worked. server port: 2345
+2020-03-29T20:16:49.249: Ack received from: 3456
+2020-03-29T20:16:49.250: call request for worked. server port: 3456
+2020-03-29T20:16:49.251: Ack received from: 5678
+2020-03-29T20:16:49.251: call request for worked. server port: 5678
+2020-03-29T20:16:49.354: Wait Ack Try 1
+2020-03-29T20:16:49.354: Wait Ack Scuess
+2020-03-29T20:16:49.354: Server at port 4567 Send Request to Node Server Commit
+2020-03-29T20:16:49.358: Writing the key: s5 and value:  at server port: 1234 status:SUCESS 
+2020-03-29T20:16:49.358: Ack received from: 1234
+2020-03-29T20:16:49.359: call commit for worked. server port: 1234
+2020-03-29T20:16:49.360: Writing the key: s5 and value:  at server port: 2345 status:SUCESS 
+2020-03-29T20:16:49.361: Ack received from: 2345
+2020-03-29T20:16:49.361: call commit for worked. server port: 2345
+2020-03-29T20:16:49.362: Writing the key: s5 and value:  at server port: 3456 status:SUCESS 
+2020-03-29T20:16:49.363: Ack received from: 3456
+2020-03-29T20:16:49.364: call commit for worked. server port: 3456
+2020-03-29T20:16:49.365: Writing the key: s5 and value:  at server port: 5678 status:SUCESS 
+2020-03-29T20:16:49.366: Ack received from: 5678
+2020-03-29T20:16:49.366: call commit for worked. server port: 5678
+2020-03-29T20:16:49.468: Wait Ack To Commit Try 1
+2020-03-29T20:16:49.468: Wait Ack To Commit Scuess
+2020-03-29T20:16:49.474: Writing the key: s5 and value:  at server port: 4567 status:SUCESS 
+2020-03-29T20:16:49.474: Server at port 4567 Process: PUT -> key s5 value: status : SUCESS 
+2020-03-29T20:16:49.475: Server at port 5678 Received Request: PUT Key:s2 Value:
+2020-03-29T20:16:49.476: Server at port 5678 Send Request to Node Server Ack
+2020-03-29T20:16:49.477: Ack received from: 1234
+2020-03-29T20:16:49.477: call request for worked. server port: 1234
+2020-03-29T20:16:49.479: Ack received from: 2345
+2020-03-29T20:16:49.479: call request for worked. server port: 2345
+2020-03-29T20:16:49.481: Ack received from: 3456
+2020-03-29T20:16:49.481: call request for worked. server port: 3456
+2020-03-29T20:16:49.483: Ack received from: 4567
+2020-03-29T20:16:49.483: call request for worked. server port: 4567
+2020-03-29T20:16:49.585: Wait Ack Try 1
+2020-03-29T20:16:49.585: Wait Ack Scuess
+2020-03-29T20:16:49.585: Server at port 5678 Send Request to Node Server Commit
+2020-03-29T20:16:49.591: Writing the key: s2 and value:  at server port: 1234 status:SUCESS 
+2020-03-29T20:16:49.593: Ack received from: 1234
+2020-03-29T20:16:49.593: call commit for worked. server port: 1234
+2020-03-29T20:16:49.594: Writing the key: s2 and value:  at server port: 2345 status:SUCESS 
+2020-03-29T20:16:49.595: Ack received from: 2345
+2020-03-29T20:16:49.595: call commit for worked. server port: 2345
+2020-03-29T20:16:49.597: Writing the key: s2 and value:  at server port: 3456 status:SUCESS 
+2020-03-29T20:16:49.597: Ack received from: 3456
+2020-03-29T20:16:49.598: call commit for worked. server port: 3456
+2020-03-29T20:16:49.599: Writing the key: s2 and value:  at server port: 4567 status:SUCESS 
+2020-03-29T20:16:49.599: Ack received from: 4567
+2020-03-29T20:16:49.599: call commit for worked. server port: 4567
+2020-03-29T20:16:49.704: Wait Ack To Commit Try 1
+2020-03-29T20:16:49.704: Wait Ack To Commit Scuess
+2020-03-29T20:16:49.704: Writing the key: s2 and value:  at server port: 5678 status:SUCESS 
+2020-03-29T20:16:49.705: Server at port 5678 Process: PUT -> key s2 value: status : SUCESS 
+2020-03-29T20:16:49.706: Server at port 1234 Received Request: DEL Key:s3 Value:
+2020-03-29T20:16:49.706: Server at port 1234 Send Request to Node Server Ack
+2020-03-29T20:16:49.710: Ack received from: 2345
+2020-03-29T20:16:49.710: call request for worked. server port: 2345
+2020-03-29T20:16:49.712: Ack received from: 3456
+2020-03-29T20:16:49.713: call request for worked. server port: 3456
+2020-03-29T20:16:49.715: Ack received from: 4567
+2020-03-29T20:16:49.715: call request for worked. server port: 4567
+2020-03-29T20:16:49.716: Ack received from: 5678
+2020-03-29T20:16:49.717: call request for worked. server port: 5678
+2020-03-29T20:16:49.820: Wait Ack Try 1
+2020-03-29T20:16:49.820: Wait Ack Scuess
+2020-03-29T20:16:49.820: Server at port 1234 Send Request to Node Server Commit
+2020-03-29T20:16:49.822: Deleting the key: s3 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:49.823: Ack received from: 2345
+2020-03-29T20:16:49.823: call commit for worked. server port: 2345
+2020-03-29T20:16:49.825: Deleting the key: s3 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:49.826: Ack received from: 3456
+2020-03-29T20:16:49.826: call commit for worked. server port: 3456
+2020-03-29T20:16:49.829: Deleting the key: s3 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:49.830: Ack received from: 4567
+2020-03-29T20:16:49.830: call commit for worked. server port: 4567
+2020-03-29T20:16:49.831: Deleting the key: s3 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:49.832: Ack received from: 5678
+2020-03-29T20:16:49.832: call commit for worked. server port: 5678
+2020-03-29T20:16:49.937: Wait Ack To Commit Try 1
+2020-03-29T20:16:49.937: Wait Ack To Commit Scuess
+2020-03-29T20:16:49.938: Deleting the key: s3 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:49.938: Server at port 1234 Process: DELETE -> key s3 status : SUCESS 
+2020-03-29T20:16:49.939: Server at port 2345 Received Request: DEL Key:s1 Value:
+2020-03-29T20:16:49.939: Server at port 2345 Send Request to Node Server Ack
+2020-03-29T20:16:49.941: Ack received from: 1234
+2020-03-29T20:16:49.941: call request for worked. server port: 1234
+2020-03-29T20:16:49.942: Ack received from: 3456
+2020-03-29T20:16:49.942: call request for worked. server port: 3456
+2020-03-29T20:16:49.944: Ack received from: 4567
+2020-03-29T20:16:49.944: call request for worked. server port: 4567
+2020-03-29T20:16:49.945: Ack received from: 5678
+2020-03-29T20:16:49.945: call request for worked. server port: 5678
+2020-03-29T20:16:50.047: Wait Ack Try 1
+2020-03-29T20:16:50.047: Wait Ack Scuess
+2020-03-29T20:16:50.047: Server at port 2345 Send Request to Node Server Commit
+2020-03-29T20:16:50.049: Deleting the key: s1 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:50.051: Ack received from: 1234
+2020-03-29T20:16:50.052: call commit for worked. server port: 1234
+2020-03-29T20:16:50.054: Deleting the key: s1 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:50.055: Ack received from: 3456
+2020-03-29T20:16:50.055: call commit for worked. server port: 3456
+2020-03-29T20:16:50.057: Deleting the key: s1 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:50.057: Ack received from: 4567
+2020-03-29T20:16:50.058: call commit for worked. server port: 4567
+2020-03-29T20:16:50.059: Deleting the key: s1 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:50.060: Ack received from: 5678
+2020-03-29T20:16:50.060: call commit for worked. server port: 5678
+2020-03-29T20:16:50.164: Wait Ack To Commit Try 1
+2020-03-29T20:16:50.164: Wait Ack To Commit Scuess
+2020-03-29T20:16:50.165: Deleting the key: s1 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:50.165: Server at port 2345 Process: DELETE -> key s1 status : SUCESS 
+2020-03-29T20:16:50.166: Server at port 3456 Received Request: DEL Key:s4 Value:
+2020-03-29T20:16:50.166: Server at port 3456 Send Request to Node Server Ack
+2020-03-29T20:16:50.168: Ack received from: 1234
+2020-03-29T20:16:50.168: call request for worked. server port: 1234
+2020-03-29T20:16:50.170: Ack received from: 2345
+2020-03-29T20:16:50.170: call request for worked. server port: 2345
+2020-03-29T20:16:50.172: Ack received from: 4567
+2020-03-29T20:16:50.172: call request for worked. server port: 4567
+2020-03-29T20:16:50.173: Ack received from: 5678
+2020-03-29T20:16:50.173: call request for worked. server port: 5678
+2020-03-29T20:16:50.276: Wait Ack Try 1
+2020-03-29T20:16:50.276: Wait Ack Scuess
+2020-03-29T20:16:50.276: Server at port 3456 Send Request to Node Server Commit
+2020-03-29T20:16:50.278: Deleting the key: s4 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:50.279: Ack received from: 1234
+2020-03-29T20:16:50.279: call commit for worked. server port: 1234
+2020-03-29T20:16:50.280: Deleting the key: s4 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:50.281: Ack received from: 2345
+2020-03-29T20:16:50.281: call commit for worked. server port: 2345
+2020-03-29T20:16:50.282: Deleting the key: s4 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:50.283: Ack received from: 4567
+2020-03-29T20:16:50.283: call commit for worked. server port: 4567
+2020-03-29T20:16:50.284: Deleting the key: s4 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:50.285: Ack received from: 5678
+2020-03-29T20:16:50.285: call commit for worked. server port: 5678
+2020-03-29T20:16:50.389: Wait Ack To Commit Try 1
+2020-03-29T20:16:50.390: Wait Ack To Commit Scuess
+2020-03-29T20:16:50.390: Deleting the key: s4 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:50.390: Server at port 3456 Process: DELETE -> key s4 status : SUCESS 
+2020-03-29T20:16:50.391: Server at port 4567 Received Request: DEL Key:s5 Value:
+2020-03-29T20:16:50.391: Server at port 4567 Send Request to Node Server Ack
+2020-03-29T20:16:50.393: Ack received from: 1234
+2020-03-29T20:16:50.393: call request for worked. server port: 1234
+2020-03-29T20:16:50.395: Ack received from: 2345
+2020-03-29T20:16:50.395: call request for worked. server port: 2345
+2020-03-29T20:16:50.396: Ack received from: 3456
+2020-03-29T20:16:50.396: call request for worked. server port: 3456
+2020-03-29T20:16:50.397: Ack received from: 5678
+2020-03-29T20:16:50.397: call request for worked. server port: 5678
+2020-03-29T20:16:50.502: Wait Ack Try 1
+2020-03-29T20:16:50.502: Wait Ack Scuess
+2020-03-29T20:16:50.502: Server at port 4567 Send Request to Node Server Commit
+2020-03-29T20:16:50.504: Deleting the key: s5 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:50.505: Ack received from: 1234
+2020-03-29T20:16:50.505: call commit for worked. server port: 1234
+2020-03-29T20:16:50.506: Deleting the key: s5 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:50.507: Ack received from: 2345
+2020-03-29T20:16:50.507: call commit for worked. server port: 2345
+2020-03-29T20:16:50.509: Deleting the key: s5 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:50.510: Ack received from: 3456
+2020-03-29T20:16:50.510: call commit for worked. server port: 3456
+2020-03-29T20:16:50.511: Deleting the key: s5 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:50.512: Ack received from: 5678
+2020-03-29T20:16:50.512: call commit for worked. server port: 5678
+2020-03-29T20:16:50.614: Wait Ack To Commit Try 1
+2020-03-29T20:16:50.614: Wait Ack To Commit Scuess
+2020-03-29T20:16:50.614: Deleting the key: s5 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:50.614: Server at port 4567 Process: DELETE -> key s5 status : SUCESS 
+2020-03-29T20:16:50.617: Server at port 5678 Received Request: DEL Key:s2 Value:
+2020-03-29T20:16:50.617: Server at port 5678 Send Request to Node Server Ack
+2020-03-29T20:16:50.619: Ack received from: 1234
+2020-03-29T20:16:50.619: call request for worked. server port: 1234
+2020-03-29T20:16:50.620: Ack received from: 2345
+2020-03-29T20:16:50.620: call request for worked. server port: 2345
+2020-03-29T20:16:50.622: Ack received from: 3456
+2020-03-29T20:16:50.622: call request for worked. server port: 3456
+2020-03-29T20:16:50.623: Ack received from: 4567
+2020-03-29T20:16:50.623: call request for worked. server port: 4567
+2020-03-29T20:16:50.726: Wait Ack Try 1
+2020-03-29T20:16:50.727: Wait Ack Scuess
+2020-03-29T20:16:50.727: Server at port 5678 Send Request to Node Server Commit
+2020-03-29T20:16:50.728: Deleting the key: s2 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:50.729: Ack received from: 1234
+2020-03-29T20:16:50.730: call commit for worked. server port: 1234
+2020-03-29T20:16:50.731: Deleting the key: s2 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:50.732: Ack received from: 2345
+2020-03-29T20:16:50.732: call commit for worked. server port: 2345
+2020-03-29T20:16:50.733: Deleting the key: s2 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:50.734: Ack received from: 3456
+2020-03-29T20:16:50.734: call commit for worked. server port: 3456
+2020-03-29T20:16:50.736: Deleting the key: s2 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:50.737: Ack received from: 4567
+2020-03-29T20:16:50.737: call commit for worked. server port: 4567
+2020-03-29T20:16:50.841: Wait Ack To Commit Try 1
+2020-03-29T20:16:50.841: Wait Ack To Commit Scuess
+2020-03-29T20:16:50.842: Deleting the key: s2 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:50.842: Server at port 5678 Process: DELETE -> key s2 status : SUCESS 
+2020-03-29T20:16:50.843: Server at port 1234 Received Request: PUT Key:s2 Value:1
+2020-03-29T20:16:50.843: Server at port 1234 Send Request to Node Server Ack
+2020-03-29T20:16:50.847: Ack received from: 2345
+2020-03-29T20:16:50.847: call request for worked. server port: 2345
+2020-03-29T20:16:50.848: Ack received from: 3456
+2020-03-29T20:16:50.849: call request for worked. server port: 3456
+2020-03-29T20:16:50.850: Ack received from: 4567
+2020-03-29T20:16:50.850: call request for worked. server port: 4567
+2020-03-29T20:16:50.852: Ack received from: 5678
+2020-03-29T20:16:50.852: call request for worked. server port: 5678
+2020-03-29T20:16:50.957: Wait Ack Try 1
+2020-03-29T20:16:50.957: Wait Ack Scuess
+2020-03-29T20:16:50.957: Server at port 1234 Send Request to Node Server Commit
+2020-03-29T20:16:50.960: Writing the key: s2 and value: 1 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:50.961: Ack received from: 2345
+2020-03-29T20:16:50.961: call commit for worked. server port: 2345
+2020-03-29T20:16:50.963: Writing the key: s2 and value: 1 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:50.964: Ack received from: 3456
+2020-03-29T20:16:50.964: call commit for worked. server port: 3456
+2020-03-29T20:16:50.965: Writing the key: s2 and value: 1 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:50.965: Ack received from: 4567
+2020-03-29T20:16:50.966: call commit for worked. server port: 4567
+2020-03-29T20:16:50.967: Writing the key: s2 and value: 1 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:50.967: Ack received from: 5678
+2020-03-29T20:16:50.967: call commit for worked. server port: 5678
+2020-03-29T20:16:51.072: Wait Ack To Commit Try 1
+2020-03-29T20:16:51.072: Wait Ack To Commit Scuess
+2020-03-29T20:16:51.073: Writing the key: s2 and value: 1 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:51.073: Server at port 1234 Process: PUT -> key s2 value:1 status : SUCESS 
+2020-03-29T20:16:51.074: Server at port 2345 Received Request: PUT Key:s4 Value:3
+2020-03-29T20:16:51.074: Server at port 2345 Send Request to Node Server Ack
+2020-03-29T20:16:51.076: Ack received from: 1234
+2020-03-29T20:16:51.076: call request for worked. server port: 1234
+2020-03-29T20:16:51.078: Ack received from: 3456
+2020-03-29T20:16:51.078: call request for worked. server port: 3456
+2020-03-29T20:16:51.079: Ack received from: 4567
+2020-03-29T20:16:51.079: call request for worked. server port: 4567
+2020-03-29T20:16:51.081: Ack received from: 5678
+2020-03-29T20:16:51.081: call request for worked. server port: 5678
+2020-03-29T20:16:51.186: Wait Ack Try 1
+2020-03-29T20:16:51.186: Wait Ack Scuess
+2020-03-29T20:16:51.186: Server at port 2345 Send Request to Node Server Commit
+2020-03-29T20:16:51.187: Writing the key: s4 and value: 3 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:51.188: Ack received from: 1234
+2020-03-29T20:16:51.189: call commit for worked. server port: 1234
+2020-03-29T20:16:51.190: Writing the key: s4 and value: 3 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:51.191: Ack received from: 3456
+2020-03-29T20:16:51.191: call commit for worked. server port: 3456
+2020-03-29T20:16:51.193: Writing the key: s4 and value: 3 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:51.194: Ack received from: 4567
+2020-03-29T20:16:51.194: call commit for worked. server port: 4567
+2020-03-29T20:16:51.195: Writing the key: s4 and value: 3 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:51.196: Ack received from: 5678
+2020-03-29T20:16:51.197: call commit for worked. server port: 5678
+2020-03-29T20:16:51.300: Wait Ack To Commit Try 1
+2020-03-29T20:16:51.300: Wait Ack To Commit Scuess
+2020-03-29T20:16:51.306: Writing the key: s4 and value: 3 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:51.306: Server at port 2345 Process: PUT -> key s4 value:3 status : SUCESS 
+2020-03-29T20:16:51.307: Server at port 3456 Received Request: PUT Key:s1 Value:4
+2020-03-29T20:16:51.307: Server at port 3456 Send Request to Node Server Ack
+2020-03-29T20:16:51.309: Ack received from: 1234
+2020-03-29T20:16:51.310: call request for worked. server port: 1234
+2020-03-29T20:16:51.311: Ack received from: 2345
+2020-03-29T20:16:51.311: call request for worked. server port: 2345
+2020-03-29T20:16:51.313: Ack received from: 4567
+2020-03-29T20:16:51.313: call request for worked. server port: 4567
+2020-03-29T20:16:51.314: Ack received from: 5678
+2020-03-29T20:16:51.314: call request for worked. server port: 5678
+2020-03-29T20:16:51.418: Wait Ack Try 1
+2020-03-29T20:16:51.418: Wait Ack Scuess
+2020-03-29T20:16:51.418: Server at port 3456 Send Request to Node Server Commit
+2020-03-29T20:16:51.421: Writing the key: s1 and value: 4 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:51.422: Ack received from: 1234
+2020-03-29T20:16:51.422: call commit for worked. server port: 1234
+2020-03-29T20:16:51.424: Writing the key: s1 and value: 4 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:51.425: Ack received from: 2345
+2020-03-29T20:16:51.425: call commit for worked. server port: 2345
+2020-03-29T20:16:51.426: Writing the key: s1 and value: 4 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:51.427: Ack received from: 4567
+2020-03-29T20:16:51.427: call commit for worked. server port: 4567
+2020-03-29T20:16:51.429: Writing the key: s1 and value: 4 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:51.429: Ack received from: 5678
+2020-03-29T20:16:51.430: call commit for worked. server port: 5678
+2020-03-29T20:16:51.533: Wait Ack To Commit Try 1
+2020-03-29T20:16:51.533: Wait Ack To Commit Scuess
+2020-03-29T20:16:51.534: Writing the key: s1 and value: 4 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:51.534: Server at port 3456 Process: PUT -> key s1 value:4 status : SUCESS 
+2020-03-29T20:16:51.535: Server at port 4567 Received Request: PUT Key:s5 Value:5
+2020-03-29T20:16:51.535: Server at port 4567 Send Request to Node Server Ack
+2020-03-29T20:16:51.537: Ack received from: 1234
+2020-03-29T20:16:51.537: call request for worked. server port: 1234
+2020-03-29T20:16:51.539: Ack received from: 2345
+2020-03-29T20:16:51.539: call request for worked. server port: 2345
+2020-03-29T20:16:51.541: Ack received from: 3456
+2020-03-29T20:16:51.541: call request for worked. server port: 3456
+2020-03-29T20:16:51.543: Ack received from: 5678
+2020-03-29T20:16:51.543: call request for worked. server port: 5678
+2020-03-29T20:16:51.645: Wait Ack Try 1
+2020-03-29T20:16:51.645: Wait Ack Scuess
+2020-03-29T20:16:51.645: Server at port 4567 Send Request to Node Server Commit
+2020-03-29T20:16:51.647: Writing the key: s5 and value: 5 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:51.648: Ack received from: 1234
+2020-03-29T20:16:51.648: call commit for worked. server port: 1234
+2020-03-29T20:16:51.649: Writing the key: s5 and value: 5 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:51.650: Ack received from: 2345
+2020-03-29T20:16:51.650: call commit for worked. server port: 2345
+2020-03-29T20:16:51.651: Writing the key: s5 and value: 5 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:51.652: Ack received from: 3456
+2020-03-29T20:16:51.652: call commit for worked. server port: 3456
+2020-03-29T20:16:51.653: Writing the key: s5 and value: 5 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:51.654: Ack received from: 5678
+2020-03-29T20:16:51.654: call commit for worked. server port: 5678
+2020-03-29T20:16:51.757: Wait Ack To Commit Try 1
+2020-03-29T20:16:51.757: Wait Ack To Commit Scuess
+2020-03-29T20:16:51.757: Writing the key: s5 and value: 5 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:51.758: Server at port 4567 Process: PUT -> key s5 value:5 status : SUCESS 
+2020-03-29T20:16:51.759: Server at port 5678 Received Request: PUT Key:s3 Value:2
+2020-03-29T20:16:51.759: Server at port 5678 Send Request to Node Server Ack
+2020-03-29T20:16:51.760: Ack received from: 1234
+2020-03-29T20:16:51.760: call request for worked. server port: 1234
+2020-03-29T20:16:51.761: Ack received from: 2345
+2020-03-29T20:16:51.762: call request for worked. server port: 2345
+2020-03-29T20:16:51.763: Ack received from: 3456
+2020-03-29T20:16:51.763: call request for worked. server port: 3456
+2020-03-29T20:16:51.764: Ack received from: 4567
+2020-03-29T20:16:51.764: call request for worked. server port: 4567
+2020-03-29T20:16:51.869: Wait Ack Try 1
+2020-03-29T20:16:51.869: Wait Ack Scuess
+2020-03-29T20:16:51.869: Server at port 5678 Send Request to Node Server Commit
+2020-03-29T20:16:51.870: Writing the key: s3 and value: 2 at server port: 1234 status:SUCESS 
+2020-03-29T20:16:51.871: Ack received from: 1234
+2020-03-29T20:16:51.871: call commit for worked. server port: 1234
+2020-03-29T20:16:51.873: Writing the key: s3 and value: 2 at server port: 2345 status:SUCESS 
+2020-03-29T20:16:51.873: Ack received from: 2345
+2020-03-29T20:16:51.874: call commit for worked. server port: 2345
+2020-03-29T20:16:51.875: Writing the key: s3 and value: 2 at server port: 3456 status:SUCESS 
+2020-03-29T20:16:51.876: Ack received from: 3456
+2020-03-29T20:16:51.876: call commit for worked. server port: 3456
+2020-03-29T20:16:51.877: Writing the key: s3 and value: 2 at server port: 4567 status:SUCESS 
+2020-03-29T20:16:51.878: Ack received from: 4567
+2020-03-29T20:16:51.878: call commit for worked. server port: 4567
+2020-03-29T20:16:51.982: Wait Ack To Commit Try 1
+2020-03-29T20:16:51.982: Wait Ack To Commit Scuess
+2020-03-29T20:16:51.983: Writing the key: s3 and value: 2 at server port: 5678 status:SUCESS 
+2020-03-29T20:16:51.983: Server at port 5678 Process: PUT -> key s3 value:2 status : SUCESS
